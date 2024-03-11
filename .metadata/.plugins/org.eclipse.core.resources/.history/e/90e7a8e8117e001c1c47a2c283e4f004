@@ -1,0 +1,14 @@
+package SeleniumBasics;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class SL_TestCasesTest2 {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

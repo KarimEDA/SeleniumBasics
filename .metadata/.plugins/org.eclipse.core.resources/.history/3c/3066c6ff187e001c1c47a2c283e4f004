@@ -1,0 +1,66 @@
+package SeleniumBasics;
+
+import static org.junit.Assert.*;
+import java.util.Arrays;
+import java.util.Collection;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.excel.lib.util.Xls_Reader;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+@RunWith(Parameterized.class)
+public class SL_TestCasesTest2 {
+	private static Logger logger = LogManager.getLogger(SL_TestCasesTest.class);
+	static WebDriver driver = null;
+	static SL_TestCases invSort = new SL_TestCases();
+	private final String sorting;
+	private final String username;
+	private final String pwd;
+	private final String test;
+	public SL_TestCasesTest2(String test, String sorting, String username, String pwd) {
+		this.sorting = sorting;
+		this.test = test;
+		this.username = username;
+		this.pwd = pwd;
+	}
+	
+	@Before
+	public void setup() {
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		driver.get("https://www.saucedemo.com/");
+	}
+	
+	@Test 
+	public void inventoryTest() {
+		invSort.login(driver, username, pwd, sorting);
+	}
+	
+	@After
+	public void endTest() {
+		driver.quit();
+	}
+	@Parameterized.Parameters
+    public static Collection<Object[]> data() {
+    	Xls_Reader xlsR = new Xls_Reader("C:\\Users\\karim\\OneDrive\\Desktop\\SLTestReport.xlsx");
+		String sheetName = "ID&PASSWORD";
+		int rowCount = xlsR.getRowCount(sheetName)-4;
+		System.out.println(rowCount);
+        Object[][] credentials = new Object[rowCount][4];
+        	for(int i=0;i<rowCount;i++) {
+        		credentials[i][0]=xlsR.getCellData(sheetName, 4, i+2);
+    			credentials[i][1]=xlsR.getCellData(sheetName, 5, i+2);
+    			credentials[i][2]=xlsR.getCellData(sheetName, 6, i+2);	
+    			credentials[i][3]=xlsR.getCellData(sheetName, 7, i+2);
+    		}
+        return Arrays.asList(credentials);
+    }
+}

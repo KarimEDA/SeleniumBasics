@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-11-29T18:13:47 MST" name="Surefire suite" finished-at="2021-11-29T18:13:47 MST" duration-ms="23">
+    <groups>
+    </groups>
+    <test started-at="2021-11-29T18:13:47 MST" name="Surefire test" finished-at="2021-11-29T18:13:47 MST" duration-ms="23">
+      <class name="TutorialMaven.MavenBasics.SeleniumTest">
+        <test-method signature="BrowserAUtomation()[pri:0, instance:TutorialMaven.MavenBasics.SeleniumTest@76329302]" started-at="2021-11-29T18:13:47 MST" name="BrowserAUtomation" finished-at="2021-11-29T18:13:47 MST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BrowserAUtomation -->
+        <test-method signature="elementsUi()[pri:0, instance:TutorialMaven.MavenBasics.SeleniumTest@76329302]" started-at="2021-11-29T18:13:47 MST" name="elementsUi" finished-at="2021-11-29T18:13:47 MST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- elementsUi -->
+      </class> <!-- TutorialMaven.MavenBasics.SeleniumTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
